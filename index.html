@@ -1,7 +1,386 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
-</html>
+	<html>
+		<title>Car quiz</title>
+		<head>
+<!--Page Styling-->		
+		<style>
+			div.readingText {
+								text-align:center;
+								margin-left:20px;
+								margin-right:20px;
+								color:white;
+			}
+			body {
+					border-style:solid;
+					border-color:#1C3334;
+					border-width:50px;
+					background-color:#2F4454;
+					margin:0px
+			}
+			img {
+					margin:auto;
+					width:40%;
+					display:block;
+			}
+			label{
+					color:white;
+			}
+			p{
+					color:white;
+			}
+			div.formatQuest{
+					margin-left:20px;
+			}
+			
+		</style>
+		</head>
+		<body>
+			<div class="readingText">
+				<h2><font color="66FCF1"><strong>Car Performance</font></strong></h2>
+					<p>Cars are a great mode of transportation.
+					They can lessen the time it takes from going from point A to Point B depending on the speed.
+					Some people increase the power of their car to make going from point to point a lot faster.
+					There are many different combinations of engine parts that can increase the power of a car, but there are only a few serious power adders.
+					</p>
+			</div>
+			<div class="readingText">
+				<h2><font color="66FCF1"><strong>The Turbo</font></strong></h2>
+					<p>A turbo charger is used in many production cars and has many other automotive and machinery applications.
+					An engine is basically just an mechanized pump; it needs air and fuel to work and create power. The more air and fuel
+					and engine can take in the more power it can create. A turbo can increase the amount of air an engine can take in drastically.
+					Using an engines already existing exhaust gasses, a turbos turbine spins at speeds over 5000RPM (dependant on the turbo). This in turn creates
+					mechanical energy which drives a turbos compressor which feeds cooled and compressed air into an engines cylinders.
+					Increasing the air in the cylinders allows more kinetic energy (in the form of explosions) inside the cylinders increasing the power output.
+					Since a turbo runs off of exhaust gasses there is some lag between the time a turbo is at its starting RPM to its highest RPM.
+					</p>
+			</div>	
+				<img src="http://i.imgur.com/kiBAO0L.jpg" alt="turbo" style="width:200px;height:200px">
+			
+			<div class="readingText">
+				<h2><font color="66FCF1"><strong>The Supercharger</font></strong></h2>
+					<p>A supercharger has the same goal as a turbo; to increase the amount of air available to an engines cylinders. The main difference is
+					that a supercharger is driven by the same belt that powers a cars A/C, Powersteering, and Alternator. An advantage to using a supercharger is that
+					it is running off a cars serpentine belt to create the energy it needs to operate. This provides instantaneous power although superchargers also use more fuel than
+					a turbo which just uses exhaust gasses to operate.
+					</p>
+			</div>	
+				<img src="http://i.imgur.com/ii6FqdL.jpg" alt="supercharger" style="width:200px;height:200px">
+
+			<div class="readingText">
+				<h2><font color="66FCF1"><strong>Conclusion</font></strong></h2>
+					<p>In conclusion both a turbo and a supercharger aim to add more air to create more kinetic energy.
+					The main difference between them is that a turbo runs off of exhaust gasses which make it more fuel effecient but also
+					creates lag because of the time it takes for exhaust gasses to get to the turbo. A supercharger runs off a an engines serpentine belt
+					and provides instantaneous power at the cost of more fuel. With the current era of turbos, turbo technology has aimed at creating less lag while supercharger technology has remained
+					almost stagnant making the turbo the best of its class.</p>
+			</div>
+
+			<div class="readingText">
+				<h2><font color="66FCF1"><strong>QUIZ</font></strong></h2>
+				<p id="quizInit">Press when you are ready to take the quiz!</p>
+				<button onclick="countingVal()" id="quizButton" value=0 name="quizButton">Go!</button> <br>
+			</div>
+
+				<div id="boxingQuest1" class="formatQuest">
+					<p id="q1Text"></p>
+				</div>
+				<div id="boxingQuest2" class="formatQuest">
+					<p id="q2Text"></p>
+				</div>
+				<div id="boxingQuest3" class="formatQuest">
+					<p id="q3Text"></p>
+				</div>	
+				<div id="boxingQuest4" class="formatQuest">
+					<p id="q4Text"></p>
+				</div>
+				<div id="boxingQuest5" class="formatQuest">
+					<p id="q5Text"></p>
+				</div>
+
+<!--button container-->				
+				<div id="scrbtn" class="formatQuest">
+					<p id="buttonS"></p>
+				</div>	
+			
+		</body>
+			<script type="text/JavaScript">
+				
+//allows you to only open up the quiz once so that the radio buttons do not multiply				
+				function countingVal() {
+					if (document.getElementById("quizButton").getAttribute("value") == 0) {
+							document.getElementById("quizButton").setAttribute("value",3);
+							alert("Press OK to begin!")
+							getQuiz();
+					} else {
+						alert("The quiz has already started!");
+						}
+				}
+				
+				
+//Changes the value of the quizInit element			
+				function getQuiz() {
+						document.getElementById("quizInit").innerHTML = "Read Carefully! Good Luck!";
+					intitiateQuiz();
+				}
+//Actual quiz function
+				function intitiateQuiz() {
+//creating radio buttons <input type ="radio" value="" name=""
+//4 lines for each radio button  for the radio button
+//1	
+							var quest1_1 = document.createElement("INPUT");
+									quest1_1.setAttribute("type", "radio");
+										quest1_1.setAttribute("name","question1");
+											quest1_1.setAttribute("value", "1");
+												quest1_1.setAttribute("id", "question1_1");
+							var quest1_2 = document.createElement("INPUT");
+									quest1_2.setAttribute("type", "radio");
+										quest1_2.setAttribute("name","question1");
+											quest1_2.setAttribute("value", "2");
+												quest1_2.setAttribute("id", "question1_2");
+//2											
+							var quest2_1 = document.createElement("INPUT");
+									quest2_1.setAttribute("type", "radio");
+										quest2_1.setAttribute("name","question2");
+											quest2_1.setAttribute("value", "1");
+												quest2_1.setAttribute("id", "question2_1");
+							var quest2_2 = document.createElement("INPUT");
+									quest2_2.setAttribute("type", "radio");
+										quest2_2.setAttribute("name","question2");
+											quest2_2.setAttribute("value", "2");
+												quest2_2.setAttribute("id", "question2_2");
+							var quest2_3 = document.createElement("INPUT");
+									quest2_3.setAttribute("type", "radio");
+										quest2_3.setAttribute("name","question2");
+											quest2_3.setAttribute("value", "3");
+												quest2_3.setAttribute("id", "question2_3");
+							var quest2_4 = document.createElement("INPUT");
+									quest2_4.setAttribute("type", "radio");
+										quest2_4.setAttribute("name","question2");
+											quest2_4.setAttribute("value", "4");
+												quest2_4.setAttribute("id", "question2_4");
+//3
+							var quest3_1 = document.createElement("INPUT");
+									quest3_1.setAttribute("type", "radio");
+										quest3_1.setAttribute("name","question3");
+											quest3_1.setAttribute("value", "1");
+												quest3_1.setAttribute("id", "question3_1");
+							var quest3_2 = document.createElement("INPUT");
+									quest3_2.setAttribute("type", "radio");
+										quest3_2.setAttribute("name","question3");
+											quest3_2.setAttribute("value", "2");
+												quest3_2.setAttribute("id", "question3_2");
+//4
+							var quest4_1 = document.createElement("INPUT");
+									quest4_1.setAttribute("type", "radio");
+										quest4_1.setAttribute("name","question4");
+											quest4_1.setAttribute("value", "1");
+												quest4_1.setAttribute("id", "question4_1");
+							var quest4_2 = document.createElement("INPUT");
+									quest4_2.setAttribute("type", "radio");
+										quest4_2.setAttribute("name","question4");
+											quest4_2.setAttribute("value", "2");
+												quest4_2.setAttribute("id", "question4_2");
+//5
+							var quest5_1 = document.createElement("INPUT");
+									quest5_1.setAttribute("type", "radio");
+										quest5_1.setAttribute("name","question5");
+											quest5_1.setAttribute("value", "1");
+												quest5_1.setAttribute("id", "question5_1");
+							var quest5_2 = document.createElement("INPUT");
+									quest5_2.setAttribute("type", "radio");
+										quest5_2.setAttribute("name","question5");
+											quest5_2.setAttribute("value", "2");
+												quest5_2.setAttribute("id", "question5_2");
+							var quest5_3 = document.createElement("INPUT");
+									quest5_3.setAttribute("type", "radio");
+										quest5_3.setAttribute("name","question5");
+											quest5_3.setAttribute("value", "3");
+												quest5_3.setAttribute("id", "question5_3");
+							var quest5_4 = document.createElement("INPUT");
+									quest5_4.setAttribute("type", "radio");
+										quest5_4.setAttribute("name","question5");
+											quest5_4.setAttribute("value", "4");
+												quest5_4.setAttribute("id", "question5_4");
+												
+//creating a label for the radio button
+							var label1_1 = document.createElement("label");
+								var label1_2 = document.createElement("label");
+								
+							var label2_1 = document.createElement("label");
+								var label2_2 = document.createElement("label");
+									var label2_3 = document.createElement("label");
+										var label2_4 = document.createElement("label");
+										
+							var label3_1 = document.createElement("label");
+								var label3_2 = document.createElement("label");	
+								
+							var label4_1 = document.createElement("label");
+								var label4_2 = document.createElement("label");
+
+							var label5_1 = document.createElement("label");
+								var label5_2 = document.createElement("label");
+									var label5_3 = document.createElement("label");
+										var label5_4 = document.createElement("label");									
+//attaching the question to the label						
+							label1_1.appendChild(quest1_1);
+								label1_2.appendChild(quest1_2);
+								
+							label2_1.appendChild(quest2_1);
+								label2_2.appendChild(quest2_2);
+									label2_3.appendChild(quest2_3);
+										label2_4.appendChild(quest2_4);
+										
+							label3_1.appendChild(quest3_1);
+								label3_2.appendChild(quest3_2);
+								
+							label4_1.appendChild(quest4_1);
+								label4_2.appendChild(quest4_2);	
+								
+							label5_1.appendChild(quest5_1); 
+								label5_2.appendChild(quest5_2);
+									label5_3.appendChild(quest5_3);
+										label5_4.appendChild(quest5_4);	
+//setting the label text						
+							label1_1.innerHTML+="True<br>";
+								label1_2.innerHTML+="False<br>";
+								
+							label2_1.innerHTML+="The wheels<br>";
+								label2_2.innerHTML+="Exhaust Gasses<br>";
+									label2_3.innerHTML+="Serpentine Belt<br>";
+										label2_4.innerHTML+="Gas Pedal<br>";
+										
+							label3_1.innerHTML+="Turbo<br>";
+								label3_2.innerHTML+="Supercharger<br>";
+								
+							label4_1.innerHTML+="True<br>";
+									label4_2.innerHTML+="False<br>";
+									
+							label5_1.innerHTML+="The size<br>";
+									label5_2.innerHTML+="Lag<br>";
+										label5_3.innerHTML+="Material<br>";
+											label5_4.innerHTML+="Temperature<br>";
+//getting the div and attaching the label and radio button and text to div						
+							var putItIn1 = document.getElementById("boxingQuest1");
+							var putItIn2 = document.getElementById("boxingQuest2");
+							var putItIn3 = document.getElementById("boxingQuest3");
+							var putItIn4 = document.getElementById("boxingQuest4");
+							var putItIn5 = document.getElementById("boxingQuest5");
+							//for button
+							var putItIn6 = document.getElementById("scrbtn");
+							putItIn1.appendChild(label1_1);
+								putItIn1.appendChild(label1_2);
+								
+							putItIn2.appendChild(label2_1);
+								putItIn2.appendChild(label2_2);
+									putItIn2.appendChild(label2_3);
+										putItIn2.appendChild(label2_4);
+							
+							putItIn3.appendChild(label3_1);
+								putItIn3.appendChild(label3_2);
+							
+							putItIn4.appendChild(label4_1);
+								putItIn4.appendChild(label4_2);
+								
+							putItIn5.appendChild(label5_1);
+								putItIn5.appendChild(label5_2);
+									putItIn5.appendChild(label5_3);
+										putItIn5.appendChild(label5_4);
+//question innerHTML
+						document.getElementById("q1Text").innerHTML = "The turbo is driven by the serpentine belt."
+						document.getElementById("q2Text").innerHTML = "What causes a turbo to run?"
+						document.getElementById("q3Text").innerHTML = "Which is more fuel effecient?"
+						document.getElementById("q4Text").innerHTML = "Kinetic energy is the main force in an engine."
+						document.getElementById("q5Text").innerHTML = "What is the main difference between a supercharger and a turbo?"
+				
+//button for scoring which will call the function which gets the answers
+var btn = document.createElement("BUTTON");
+	
+var btnText = document.createTextNode("See how you did!");
+		btn.appendChild(btnText);
+		putItIn6.appendChild(btn);
+		btn.setAttribute("id", "myBtn");
+//gives dynamically added button the onclick event listener		
+		document.getElementById("myBtn").addEventListener("click", testScore1);				
+				}
+//functions to grade the test
+			function testScore1(){
+				var paragraph1w = document.getElementById("boxingQuest1");
+				var paragraph1r = document.getElementById("boxingQuest1");
+				var wText = document.createTextNode("Wrong! ");
+				var rText = document.createTextNode("Correct!");
+				var correctAns = document.createTextNode("Correct Answer: False");
+				var score = 0;
+				
+				if (document.getElementById("question1_2").checked == true){
+					score++;
+					paragraph1r.appendChild(rText);
+				}else {
+					paragraph1w.appendChild(wText);
+					paragraph1w.appendChild(correctAns);
+				}
+					testScore2(score);
+			}
+			function testScore2(score){
+				var paragraph2w = document.getElementById("boxingQuest2");
+				var paragraph2r = document.getElementById("boxingQuest2");
+				var wText = document.createTextNode("Wrong! ");
+				var rText = document.createTextNode("Correct!");
+				var correctAns = document.createTextNode("Correct Answer: Exhaust Gasses");
+				if (document.getElementById("question2_2").checked == true){
+					score++;
+					paragraph2r.appendChild(rText);
+				}else {
+					paragraph2w.appendChild(wText);
+					paragraph2w.appendChild(correctAns);
+				}
+					testScore3(score);
+			}
+			function testScore3(score){
+				var paragraph3w = document.getElementById("boxingQuest3");
+				var paragraph3r = document.getElementById("boxingQuest3");
+				var wText = document.createTextNode("Wrong! ");
+				var rText = document.createTextNode("Correct!");
+				var correctAns = document.createTextNode("Correct Answer: Turbo");				
+				if (document.getElementById("question3_1").checked == true){
+					score++;
+					paragraph3r.appendChild(rText);
+				}else {
+					paragraph3w.appendChild(wText);
+					paragraph3w.appendChild(correctAns);					
+				}
+					testScore4(score);
+			}
+			function testScore4(score) {
+				var paragraph4w = document.getElementById("boxingQuest4");
+				var paragraph4r = document.getElementById("boxingQuest4");
+				var wText = document.createTextNode("Wrong! ");
+				var rText = document.createTextNode("Correct!");
+				var correctAns = document.createTextNode("Correct Answer: True");
+				if (document.getElementById("question4_1").checked == true){
+					score++;
+					paragraph4r.appendChild(rText);
+				}else {
+					paragraph4w.appendChild(wText);
+					paragraph4w.appendChild(correctAns);					
+				}
+					testScore5(score);
+			}
+			function testScore5(score) {
+				var paragraph5w = document.getElementById("boxingQuest5");
+				var paragraph5r = document.getElementById("boxingQuest5");					
+				var wText = document.createTextNode("Wrong! ");
+				var rText = document.createTextNode("Correct!");
+				var correctAns = document.createTextNode("Correct Answer: Lag");
+				if (document.getElementById("question5_2").checked == true){
+					score++;
+					paragraph5r.appendChild(rText);
+				}else {
+					paragraph5w.appendChild(wText);
+					paragraph5w.appendChild(correctAns);
+				}
+				var scoreText = document.getElementById("scrbtn");
+				var sText = document.createTextNode(" Your Score: "+score + "/5!"); 
+				scoreText.appendChild(sText);
+			}
+			</script>
+	</html>
