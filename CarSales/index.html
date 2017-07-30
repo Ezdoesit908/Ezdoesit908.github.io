@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+	<html>
+		<title>Used Performance Cars</title>
+		<head>
+			<script type="Text/JavaScript">			
+<!-- Car Part Constructor Object-->
+				function carObject(id, name, make, year, horsePower, price, description, carImage) {
+					this.id = id;
+					this.name = name;
+					this.make = make;
+					this.year = year;
+					this.horsePower = horsePower;
+					this.price = price;
+					this.description = description;
+					this.carImage = carImage;
+				}				
+			
+<!--Cars available or ordered-->
+				var cars = new Array();
+					
+					cars[0] = new carObject("rb-01","Skyline", "Nissan", 1992, 276, 20000,
+						"Popular Japanese coupe with 4wd.",
+						"http://i.imgur.com/NWiVbs6.jpg");
+					cars[1] = new carObject("s52-01", "M3", "BMW", 1997, 250, 15000,
+						"With an upgraded m52 engine; the M3 is a fast car with saloon styling!",
+						"http://i.imgur.com/l23OrJL.jpg");
+					cars[2] = new carObject("ls-02","GTO","Pontiac",2005, 400, 17000,
+						"This cars LS2 engine really makes it roar and a real competitor for Corvettes or any other import!",
+						"http://i.imgur.com/rPiSzMd.jpg");
+				function showSelected(form) {
+//get name of form
+					var sel = document.getElementById("carSelection");
+//get selection option selected index value					
+					var value = sel.options[sel.selectedIndex].value;
+//get the text of the option which would be the name of the car.					
+					var text = sel.options[sel.selectedIndex].text;
+//for loop searching through array for a match of the name					
+						for(var i = 0; i <cars.length; i++){
+							if(cars[i].name == sel.options[sel.selectedIndex].text) {
+							//Mozilla background changed without body style code in document.write
+								document.write("<body style=\"background-color:#292929\";>");
+								document.write("<a href=\"javascript:history.go(0)\">Click to go back!</a>");
+								document.write("<center>");
+								document.write("<font color=\"white\">");
+								document.write("<h1>"+cars[i].make+ " " +cars[i].name+"</h1>");
+								document.write("<h3>Model Year: " + cars[i].year+"</h3>");
+								document.write("<h3> Horse Power: " + cars[i].horsePower+"</h3>");
+								document.write("<h3> Price: "+ cars[i].price+"</h3>");
+								document.write("<h4> Description: " +cars[i].description+"</h4>");
+//original image write w/ no formatting//document.write("<img src=" +cars[i].carImage +"\"/>");
+								document.write("<img src=" +cars[i].carImage +"\" width=\"800\" height=\"500\"/>");
+								document.write("</font>");
+								document.write("</center>");
+							}
+						}
+			//works with chrome			
+					document.body.style.background = '#292929';
+					//document.getElementById("formDiv").style.background = "#333333";
+				}
+			</script>
+		</head>
+		<body>
+		<center>
+		
+			<div class="welcomeBanner">
+			<font color = "white">
+				<h1 align="center">Welcome to Used Performance Cars</h1>
+			</div>
+			
+			<div id="formDiv">
+			<form>
+				<h3><strong>Please Select a car you are looking to purchase.</strong></h3> 
+					<select onchange="showSelected(this)" id="carSelection" name="itemName">
+						<option selected="selected">Select a car</option>	
+					<script language="JavaScript" type="text/JavaScript">
+<!--Drop down menu of cars-->		
+					for (var i = 0; i < cars.length; i++) {
+						document.write("<option>" + cars[i].name + "</option>");
+					}
+<!--Document styling-->					
+					document.body.style.background = '#292929';
+					document.getElementById("formDiv").style.background = "#333333";
+					</script>
+					</select>
+				</form>
+			<font color="white">
+			</div>
+			</center>	
+		<p align="center">Hello! Welcome to <strong>Used Performance Cars</strong>!
+		Here we have a selection of cars</br> from numerous countries. Take a look
+		at our inventory and let us know what</br> you are looking for. If the inventory
+		is not available we may be able to help you</br> out by locating a car from our suppliiers.</p>
+		</body>
+	</html>
